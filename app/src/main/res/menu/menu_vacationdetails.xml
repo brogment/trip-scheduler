@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:title="Save Vacation"
+        android:id="@+id/vacationsave"/>
+    <item android:title="Delete Vacation"
+        android:id="@+id/vacationdelete"/>
+    <item android:title="Share"
+        android:id="@+id/share"/>
+    <item android:title="Set Start Alarm"
+        android:id="@+id/vacationstartalarm"/>
+    <item android:title="Set End Alarm"
+        android:id="@+id/vacationendalarm"/>
+    <item android:title="Print to PDF"
+        android:id="@+id/printtopdf"/>
+
+    <item android:id="@+id/excursionsearch"
+        android:title="Search"
+        android:icon="@android:drawable/ic_menu_search"
+        app:showAsAction="ifRoom|collapseActionView"
+        app:actionViewClass="android.widget.SearchView" />
+</menu>

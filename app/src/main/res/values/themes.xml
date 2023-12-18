@@ -1,0 +1,15 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.D308mobileapplications" parent="Theme.Material3.DayNight">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/off_black</item>
+        <item name="colorPrimaryVariant">@color/off_black</item>
+
+        <item name="colorOnPrimary">@color/white</item>
+
+
+    </style>
+
+    <style name="Theme.D308mobileapplications" parent="Base.Theme.D308mobileapplications" />
+</resources>
