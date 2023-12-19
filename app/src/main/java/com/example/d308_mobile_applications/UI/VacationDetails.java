@@ -190,6 +190,17 @@ public class VacationDetails extends AppCompatActivity {
 
         if(item.getItemId()== R.id.vacationsave){
             Vacation vacation;
+
+            if(editTitle.getText().toString().trim().isEmpty()){
+                Toast.makeText(VacationDetails.this, "Vacation title cannot be blank", Toast.LENGTH_LONG).show();
+                return true;
+            }
+
+            if(editHotel.getText().toString().trim().isEmpty()){
+                Toast.makeText(VacationDetails.this, "Hotel cannot be blank", Toast.LENGTH_LONG).show();
+                return true;
+            }
+
             try {
                 Date startDateParsed = sdf.parse(editStartDate.getText().toString());
                 Date endDateParsed = sdf.parse(editEndDate.getText().toString());

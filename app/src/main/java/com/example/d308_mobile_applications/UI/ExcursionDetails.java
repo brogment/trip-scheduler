@@ -102,6 +102,11 @@ public class ExcursionDetails extends AppCompatActivity {
         if (item.getItemId() == R.id.excursionsave) {
             Excursion excursion;
 
+            if(editName.getText().toString().trim().isEmpty()){
+                Toast.makeText(ExcursionDetails.this, "Excursion name cannot be blank", Toast.LENGTH_LONG).show();
+                return true;
+            }
+
             try {
                 Date excursionDateParsed = sdf.parse(editDate.getText().toString());
                 Vacation currentVacation = repository.getVacationByID(vacationID);

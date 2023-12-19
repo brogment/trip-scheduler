@@ -8,18 +8,6 @@
       <entry key="app">
         <State />
       </entry>
-      <entry key="testSearchExcursions()">
-        <State />
-      </entry>
-      <entry key="testSearchVacations()">
-        <State />
-      </entry>
-      <entry key="testToTimestamp()">
-        <State />
-      </entry>
-      <entry key="testUpdateVacation()">
-        <State />
-      </entry>
     </value>
   </component>
 </project>

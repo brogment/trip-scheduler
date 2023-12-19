@@ -16,7 +16,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/baseline_add_24"
-        android:backgroundTint="@color/leafy_green"/>
+        android:backgroundTint="@color/sand"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview"
