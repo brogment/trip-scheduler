@@ -388,6 +388,7 @@ public class VacationDetails extends AppCompatActivity {
 
     private String createVacationDetails(){
         SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy", Locale.getDefault());
+        SimpleDateFormat dtf = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss", Locale.getDefault());
         StringBuilder excursionsFormatted = new StringBuilder();
 
         for (Excursion e: repository.getAllExcursions()) {
@@ -398,12 +399,17 @@ public class VacationDetails extends AppCompatActivity {
             }
         }
 
-        return "Vacation Title: " + title + "\n"
+        String currentDateTime = dtf.format(new Date());
+
+        return  "Vacation Summary\n"
+                + "----------------------------------------\n"
+                + "Vacation Title: " + title + "\n"
                 + "Hotel: " + hotel + "\n"
                 + "Start Date: " + formattedStartDate + "\n"
                 + "End Date: " + formattedEndDate + "\n"
                 + "Your Activities:\n"
-                + excursionsFormatted;
+                + excursionsFormatted
+                + "This report was created on: " + currentDateTime + "\n";
     }
 
     @Override

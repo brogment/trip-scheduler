@@ -9,12 +9,18 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.d308_mobile_applications.R;
 
+import java.util.Objects;
+
 public class MainActivity extends AppCompatActivity {
 public static int numAlert;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        Objects.requireNonNull(getSupportActionBar()).hide();
+
         Button button = findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
