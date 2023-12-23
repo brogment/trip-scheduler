@@ -4,3 +4,5 @@ This application will allow you to create a vacation and attach excursion activi
 as the date of an excursion. You can also share details about your vacation through email, text, or to your clipboard. This app represent a prototype vacation scheduling app. 
 
 Available on the Google Play Store
+
+Main screen image sourced from pixabay.com
