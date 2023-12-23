@@ -197,7 +197,7 @@ public class UnitTests {
         excursionDAO.insert(excursion2);
         excursionDAO.insert(excursion3);
 
-        List<Excursion> excursionSearchResults = excursionDAO.searchExcursions("David");
+        List<Excursion> excursionSearchResults = excursionDAO.searchExcursions("David", 0);
 
         assertEquals("Size should be one", 1, excursionSearchResults.size());
         assertEquals("Excursion name match", "Statue of David", excursionSearchResults.get(0).getExcursionName());

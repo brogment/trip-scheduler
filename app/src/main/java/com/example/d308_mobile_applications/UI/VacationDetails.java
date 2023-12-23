@@ -119,16 +119,7 @@ public class VacationDetails extends AppCompatActivity {
             }
         });
 
-        RecyclerView recyclerView = findViewById(R.id.excursionrecyclerview);
-        repository = new Repository(getApplication());
-        excursionAdapter = new ExcursionAdapter(this);
-        recyclerView.setAdapter(excursionAdapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        List<Excursion> filteredExcursions = new ArrayList<>();
-        for (Excursion e: repository.getAllExcursions()) {
-            if (e.getVacationID() == vacationID) filteredExcursions.add(e);
-        }
-        excursionAdapter.setExcursions(filteredExcursions);
+         filterExcursions();
     }
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_vacationdetails, menu);
@@ -149,11 +140,20 @@ public class VacationDetails extends AppCompatActivity {
                 return true;
             }
         });
+
+        searchView.setOnCloseListener(new SearchView.OnCloseListener() {
+            @Override
+            public boolean onClose() {
+                filterExcursions();
+                return false;
+            }
+        });
+
         return true;
     }
 
     private void performSearch(String query) {
-        List<Excursion> searchResults = repository.searchExcursions(query);
+        List<Excursion> searchResults = repository.searchExcursions(query, vacationID);
 
         excursionAdapter.setExcursions(searchResults);
         excursionAdapter.notifyDataSetChanged();
@@ -374,15 +374,7 @@ public class VacationDetails extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        RecyclerView recyclerView = findViewById(R.id.excursionrecyclerview);
-        excursionAdapter = new ExcursionAdapter(this);
-        recyclerView.setAdapter(excursionAdapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        List<Excursion> filteredExcursions = new ArrayList<>();
-        for (Excursion e : repository.getAllExcursions()) {
-            if (e.getVacationID() == vacationID) filteredExcursions.add(e);
-        }
-        excursionAdapter.setExcursions(filteredExcursions);
+        filterExcursions();
     }
 
 
@@ -421,5 +413,19 @@ public class VacationDetails extends AppCompatActivity {
             searchView.setQuery("", false);
         }
     }
+
+    private void filterExcursions() {
+        RecyclerView recyclerView = findViewById(R.id.excursionrecyclerview);
+        repository = new Repository(getApplication());
+        excursionAdapter = new ExcursionAdapter(this);
+        recyclerView.setAdapter(excursionAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        List<Excursion> filteredExcursions = new ArrayList<>();
+        for (Excursion e: repository.getAllExcursions()) {
+            if (e.getVacationID() == vacationID) filteredExcursions.add(e);
+        }
+        excursionAdapter.setExcursions(filteredExcursions);
+    }
+
 
 }

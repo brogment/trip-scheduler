@@ -144,9 +144,9 @@ public class Repository {
         return mFilteredVacations;
     }
 
-    public List<Excursion> searchExcursions(String query) {
+    public List<Excursion> searchExcursions(String query, int vacationID) {
         databaseExecutor.execute(()->{
-            mFilteredExcursions = mExcursionDAO.searchExcursions(query);
+            mFilteredExcursions = mExcursionDAO.searchExcursions(query, vacationID);
         });
         try {
             Thread.sleep(1000);

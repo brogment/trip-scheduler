@@ -26,6 +26,6 @@ public interface ExcursionDAO {
     @Query("SELECT * FROM EXCURSIONS ORDER BY excursionID ASC")
     List<Excursion> getAllExcursions();
 
-    @Query("SELECT * FROM EXCURSIONS WHERE excursionName LIKE '%' || :query || '%'")
-    List<Excursion> searchExcursions(String query);
+    @Query("SELECT * FROM EXCURSIONS WHERE vacationID = :vacationID AND excursionName LIKE '%' || :query || '%'")
+    List<Excursion> searchExcursions(String query, int vacationID);
 }

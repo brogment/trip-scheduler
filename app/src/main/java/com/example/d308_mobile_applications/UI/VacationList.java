@@ -40,14 +40,7 @@ private SearchView searchView;
             }
         });
 
-        RecyclerView recyclerView = findViewById(R.id.recyclerview);
-        repository = new Repository(getApplication());
-        List<Vacation> allVacations = repository.getAllVacations();
-        vacationAdapter = new VacationAdapter(this);
-        recyclerView.setAdapter(vacationAdapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        vacationAdapter.setVacations(allVacations);
-
+        filterVacations();
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
@@ -86,13 +79,7 @@ private SearchView searchView;
 
         if(item.getItemId()==R.id.refresh){
 
-            List<Vacation> allVacations = repository.getAllVacations();
-            RecyclerView recyclerView = findViewById(R.id.recyclerview);
-            //vacationAdapter = new VacationAdapter(this);
-            recyclerView.setAdapter(vacationAdapter);
-            recyclerView.setLayoutManager(new LinearLayoutManager(this));
-            vacationAdapter.setVacations(allVacations);
-
+            filterVacations();
             Toast.makeText(VacationList.this,"List updated",Toast.LENGTH_LONG).show();
 
             return true;
@@ -107,12 +94,7 @@ private SearchView searchView;
     @Override
     protected void onResume() {
         super.onResume();
-        List<Vacation> allVacations = repository.getAllVacations();
-        RecyclerView recyclerView = findViewById(R.id.recyclerview);
-        //vacationAdapter = new VacationAdapter(this);
-        recyclerView.setAdapter(vacationAdapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        vacationAdapter.setVacations(allVacations);
+        filterVacations();
     }
     @Override
     protected void onPause() {
@@ -123,5 +105,16 @@ private SearchView searchView;
             searchView.setQuery("", false);
         }
     }
+
+    private void filterVacations() {
+        RecyclerView recyclerView = findViewById(R.id.recyclerview);
+        repository = new Repository(getApplication());
+        List<Vacation> allVacations = repository.getAllVacations();
+        vacationAdapter = new VacationAdapter(this);
+        recyclerView.setAdapter(vacationAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        vacationAdapter.setVacations(allVacations);
+    }
+
 
 }
